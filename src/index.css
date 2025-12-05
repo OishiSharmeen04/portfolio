@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #6B8E23; /* Olive Drab */
+  --color-secondary: #809D43; /* Olive Green */
+  --color-accent: #C9D99E; /* Dark Olive Green */
+  --color-neutral: #F5F5DC; /* Beige */
+  --color-base-100: #FFFFFF; /* White */
+  --color-info: #3ABFF8; /* Sky Blue */
+  --color-success: #36D399; /* Medium Aquamarine */
+  --color-warning: #FBBD23; /* Saffron */
+  --color-error: #F87272; /* Light Coral */
+}
+
+
+
+/* Your custom CSS here */
+.grid-background {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
