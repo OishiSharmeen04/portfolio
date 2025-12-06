@@ -153,8 +153,8 @@ function Hero() {
 
         {/* Welcome Message */}
         <div ref={welcomeRef} className="text-center mb-8">
-          <p className="text-lg md:text-xl text-[#6B8E23] font-semibold tracking-wide">
-            👋 Welcome to my portfolio
+          <p className="text-lg md:text-xl lg:text-5xl text-[#6B8E23] font-semibold tracking-wide">
+             Welcome to my portfolio
           </p>
         </div>
 
@@ -233,7 +233,7 @@ function Hero() {
                     ref={imageRef}
                     alt="Oishi Sharmeen"
                     className="relative w-full h-full rounded-full drop-shadow-2xl"
-                    src="/public/image.png"
+                    src="https://image2url.com/images/1764982830896-655465bb-f3be-4c10-bf74-ea0bed101a3a.png"
                   />
                 </div>
                 
@@ -275,15 +275,6 @@ function Hero() {
               <p className="relative mt-6 text-xl font-medium text-[#1F2937] dark:text-[#E5E7EB]">
                 Frontend Developer (React + MERN)
               </p>
-
-              {/* Resume Button */}
-              <a
-                href="/public/Resume of - SHARMIN SULTANA OISHI.pdf"
-                download
-                className="relative inline-block bg-[#6B8E23] dark:bg-[#6B8E23] text-white font-semibold mt-6 py-3 px-8 rounded-full hover:opacity-90 transition-opacity duration-300 shadow-lg hover:shadow-xl"
-              >
-                Download Resume
-              </a>
             </div>
           </div>
 

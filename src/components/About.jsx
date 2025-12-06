@@ -10,27 +10,13 @@ function About() {
   const textRef = useRef(null);
   const imageRef = useRef(null);
   const circlesRef = useRef([]);
-  const techStackRef = useRef(null);
-  const skillBarsRef = useRef([]);
 
-  const techStack = [
-    { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", level: 95 },
-    { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", level: 90 },
-    { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", level: 85 },
-    { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", level: 90 },
-    { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", level: 75 },
-    { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", level: 80 },
-    { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", level: 75 },
-    { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", level: 90 },
-  ];
 
   useEffect(() => {
     const section = sectionRef.current;
     const texts = textRef.current.children;
     const image = imageRef.current;
     const circles = circlesRef.current;
-    const techIcons = techStackRef.current?.children;
-    const skillBars = skillBarsRef.current;
 
     // Section fade in
     gsap.from(section, {
@@ -98,39 +84,7 @@ function About() {
       });
     });
 
-    // Tech stack icons animation
-    if (techIcons) {
-      gsap.from(techIcons, {
-        opacity: 0,
-        scale: 0,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: "back.out(1.7)",
-        scrollTrigger: {
-          trigger: techStackRef.current,
-          start: "top 85%",
-        },
-      });
-    }
-
-    // Skill bars animation
-    skillBars.forEach((bar, index) => {
-      if (bar) {
-        gsap.fromTo(
-          bar,
-          { width: "0%" },
-          {
-            width: `${techStack[index].level}%`,
-            duration: 1.5,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: bar,
-              start: "top 90%",
-            },
-          }
-        );
-      }
-    });
+    
   }, []);
 
   return (
@@ -183,10 +137,11 @@ function About() {
 
               <div className="mt-4 flex justify-center md:justify-start">
                 <a
-                  className="inline-flex items-center gap-2 bg-[#6B8E23] text-white py-3 px-6 rounded-full font-semibold hover:opacity-90 transition-opacity duration-300"
-                  href="#"
+                  href="/public/Resume of - SHARMIN SULTANA OISHI.pdf"
+                  download
+                  className="hidden md:flex bg-gradient-to-r from-[#6B8E23] to-[#556B1F] text-white font-semibold py-2.5 px-6 rounded-full items-center gap-2 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 group"
                 >
-                  More About Me
+                  Download Resume
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
@@ -194,39 +149,6 @@ function About() {
               </div>
             </div>
           </main>
-
-          {/* Tech Stack Section with Skill Bars */}
-          <section className="mt-20 md:mt-32">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1F2937] dark:text-[#E5E7EB] mb-12">
-              My Tech Stack
-            </h2>
-
-            {/* Tech Icons Grid */}
-            <div 
-              ref={techStackRef}
-              className="grid grid-cols-4 md:grid-cols-8 gap-6 md:gap-8 mb-16"
-            >
-              {techStack.map((tech) => (
-                <div
-                  key={tech.name}
-                  className="group flex flex-col items-center gap-2 hover:scale-110 transition-transform duration-300"
-                >
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-white dark:bg-[#1E1E1E] p-2 md:p-3 rounded-lg shadow-lg group-hover:shadow-xl transition-shadow">
-                    <img
-                      src={tech.icon}
-                      alt={tech.name}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span className="text-xs text-center font-medium text-[#1F2937] dark:text-[#E5E7EB]">
-                    {tech.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            
-          </section>
         </div>
       </Element>
     </div>

@@ -17,7 +17,7 @@ function Contact() {
     { name: 'GITHUB', url: 'https://github.com/OishiSharmeen04' },
     { name: 'LINKEDIN', url: 'https://www.linkedin.com/in/oishi-sharmeen/' },
     { name: 'EMAIL', url: 'ssultana324@gmail.com' },
-    { name: 'PORTFOLIO', url: '#' },
+    { name: 'PORTFOLIO', url: 'https://oishi-sharmeen.netlify.app/' },
     { name: 'WHATSAPP', url: 'https://wa.me/01629956181' }
   ];
 
@@ -157,7 +157,7 @@ function Contact() {
               ref={imageRef}
               className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full bg-[#6B8E23] flex-shrink-0"
             >
-              <img alt="Poerfolio logo" className="w-full h-full object-cover rounded-full p-2 bg-[#F0F0E0] dark:bg-[#121212]" src="/public/logo.png" />
+              <img alt="Poerfolio logo" className="w-full h-full object-cover rounded-full p-2 bg-[#F0F0E0] dark:bg-[#121212]" src="https://image2url.com/images/1764982700037-5bbea8cf-30e1-4542-a8db-d343a4a8a3e8.png" />
             </div>
           </div>
           <div>

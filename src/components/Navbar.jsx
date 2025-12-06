@@ -65,7 +65,7 @@ export default function Navbar() {
             <div className="flex items-center gap-3">
               <div className="relative">
                 <img 
-                  src="/public/logo.png" 
+                  src="https://image2url.com/images/1764982700037-5bbea8cf-30e1-4542-a8db-d343a4a8a3e8.png" 
                   alt="Portfolio Logo" 
                   className="w-12 h-12 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" 
                 />

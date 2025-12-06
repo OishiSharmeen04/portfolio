@@ -158,10 +158,7 @@ function Skills() {
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div ref={headerRef} className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-[#6B8E23]/10 dark:bg-[#6B8E23]/20 rounded-full">
-            <span className="text-2xl">💪</span>
-            <span className="text-sm font-semibold text-[#6B8E23]">MY EXPERTISE</span>
-          </div>
+          
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#1F2937] to-[#6B8E23] dark:from-[#E5E7EB] dark:to-[#6B8E23] bg-clip-text text-transparent">
             Technical Skills & Proficiency
           </h1>
