@@ -31,7 +31,7 @@ function Projects() {
       title: 'Coming Soon...',
       tech: 'Full Stack / E-Commerce / Dashboard UI / Admin Panel',
       year: '2025',
-      image: '/public/coming-soon.png'
+      image: '/coming-soon.png'
     }
   ];
 
@@ -108,7 +108,7 @@ function Projects() {
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 src={work.image}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute inset-0 p-6 flex flex-col justify-between text-white">
                 <div className="text-sm">
                   <p>{work.tech}</p>

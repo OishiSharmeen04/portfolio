@@ -137,9 +137,9 @@ function About() {
 
               <div className="mt-4 flex justify-center md:justify-start">
                 <a
-                  href="/public/Resume of - SHARMIN SULTANA OISHI.pdf"
+                  href="/Resume of - SHARMIN SULTANA OISHI.pdf"
                   download
-                  className="hidden md:flex bg-gradient-to-r from-[#6B8E23] to-[#556B1F] text-white font-semibold py-2.5 px-6 rounded-full items-center gap-2 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 group"
+                  className="flex bg-linear-to-r from-[#6B8E23] to-[#556B1F] text-white font-semibold py-2 px-4 rounded-full items-center gap-2 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 group"
                 >
                   Download Resume
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

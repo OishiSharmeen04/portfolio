@@ -153,7 +153,7 @@ function Hero() {
 
         {/* Welcome Message */}
         <div ref={welcomeRef} className="text-center mb-8">
-          <p className="text-lg md:text-xl lg:text-5xl text-[#6B8E23] font-semibold tracking-wide">
+          <p className="text-2xl md:text-3xl lg:text-5xl text-[#6B8E23] font-semibold tracking-wide">
              Welcome to my portfolio
           </p>
         </div>
@@ -222,10 +222,10 @@ function Hero() {
               {/* Main Image with Animated Frame */}
               <div className="relative z-10 w-[280px] sm:w-[350px] md:w-[450px]">
                 {/* Outer rotating frame */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-[#6B8E23]/30 via-[#6B8E23]/10 to-[#6B8E23]/30 rounded-full blur-xl animate-spin-slow"></div>
+                <div className="absolute -inset-4 bg-linear-to-r from-[#6B8E23]/30 via-[#6B8E23]/10 to-[#6B8E23]/30 rounded-full blur-xl animate-spin-slow"></div>
                 
                 {/* Inner border frame */}
-                <div className="absolute -inset-2 bg-gradient-to-br from-[#6B8E23] via-[#556B1F] to-[#6B8E23] rounded-full animate-pulse"></div>
+                <div className="absolute -inset-2 bg-linear-to-br from-[#6B8E23] via-[#556B1F] to-[#6B8E23] rounded-full animate-pulse"></div>
                 
                 {/* Image container */}
                 <div className="relative bg-[#F0F0E0] dark:bg-[#121212] rounded-full p-2">
@@ -233,7 +233,7 @@ function Hero() {
                     ref={imageRef}
                     alt="Oishi Sharmeen"
                     className="relative w-full h-full rounded-full drop-shadow-2xl"
-                    src="https://image2url.com/images/1764982830896-655465bb-f3be-4c10-bf74-ea0bed101a3a.png"
+                    src="/image.png"
                   />
                 </div>
                 
@@ -292,7 +292,7 @@ function Hero() {
                   key={tech.name}
                   className="group flex flex-col items-center gap-2 hover:scale-110 transition-transform duration-300"
                 >
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-white dark:bg-[#1E1E1E] p-2 md:p-3 rounded-lg shadow-lg group-hover:shadow-xl transition-shadow">
+                  <div className="w-16 h-16 md:w-24 md:h-24 bg-white dark:bg-[#1E1E1E] p-2 md:p-3 rounded-lg shadow-lg group-hover:shadow-xl transition-shadow">
                     <img
                       src={tech.icon}
                       alt={tech.name}

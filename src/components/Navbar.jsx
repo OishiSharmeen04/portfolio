@@ -65,7 +65,7 @@ export default function Navbar() {
             <div className="flex items-center gap-3">
               <div className="relative">
                 <img 
-                  src="https://image2url.com/images/1764982700037-5bbea8cf-30e1-4542-a8db-d343a4a8a3e8.png" 
+                  src="/logo.png" 
                   alt="Portfolio Logo" 
                   className="w-12 h-12 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" 
                 />
@@ -102,7 +102,7 @@ export default function Navbar() {
             href="https://www.linkedin.com/in/oishi-sharmeen/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:flex bg-gradient-to-r from-[#6B8E23] to-[#556B1F] text-white font-semibold py-2.5 px-6 rounded-full items-center gap-2 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 group"
+            className="hidden md:flex bg-linear-to-r from-[#6B8E23] to-[#556B1F] text-white font-semibold py-2.5 px-6 rounded-full items-center gap-2 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 group"
             ref={(el) => (linksRef.current[links.length] = el)}
           >
             <span>Let's Connect</span>
@@ -118,7 +118,7 @@ export default function Navbar() {
 
           {/* Mobile Hamburger */}
           <button
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-gray-800 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg text-gray-800 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -161,7 +161,7 @@ export default function Navbar() {
               href="https://www.linkedin.com/in/oishi-sharmeen/"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 bg-gradient-to-r from-[#6B8E23] to-[#556B1F] text-white font-semibold py-3 px-6 rounded-full flex items-center justify-center gap-2 hover:shadow-lg transition-all duration-300"
+              className="mt-4 bg-linear-to-r from-[#6B8E23] to-[#556B1F] text-white font-semibold py-3 px-6 rounded-full flex items-center justify-center gap-2 hover:shadow-lg transition-all duration-300"
               onClick={() => setIsOpen(false)}
             >
               <span>Let's Connect</span>

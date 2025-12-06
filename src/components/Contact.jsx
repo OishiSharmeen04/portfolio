@@ -2,6 +2,8 @@ import { Element } from "react-scroll";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { SiGmail, SiNetlify } from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,11 +16,11 @@ function Contact() {
   const footerRef = useRef(null);
 
   const links = [
-    { name: 'GITHUB', url: 'https://github.com/OishiSharmeen04' },
-    { name: 'LINKEDIN', url: 'https://www.linkedin.com/in/oishi-sharmeen/' },
-    { name: 'EMAIL', url: 'ssultana324@gmail.com' },
-    { name: 'PORTFOLIO', url: 'https://oishi-sharmeen.netlify.app/' },
-    { name: 'WHATSAPP', url: 'https://wa.me/01629956181' }
+    { name: 'GITHUB', url: 'https://github.com/OishiSharmeen04', icon: FaGithub, color: '' },
+    { name: 'LINKEDIN', url: 'https://www.linkedin.com/in/oishi-sharmeen/', icon: FaLinkedin, color: '#0A66C2' },
+    { name: 'EMAIL', url: 'mailto:ssultana324@gmail.com', icon: SiGmail, color: '#EA4335' },
+    { name: 'PORTFOLIO', url: 'https://oishi-sharmeen.netlify.app/', icon: SiNetlify, color: '#00C7B7' },
+    { name: 'WHATSAPP', url: 'https://wa.me/01629956181', icon: FaWhatsapp, color: '#25D366' }
   ];
 
   useEffect(() => {
@@ -155,26 +157,41 @@ function Contact() {
           <div className="flex justify-center lg:justify-start">
             <div 
               ref={imageRef}
-              className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full bg-[#6B8E23] flex-shrink-0"
+              className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full bg-[#6B8E23] shrink-0"
             >
-              <img alt="Poerfolio logo" className="w-full h-full object-cover rounded-full p-2 bg-[#F0F0E0] dark:bg-[#121212]" src="https://image2url.com/images/1764982700037-5bbea8cf-30e1-4542-a8db-d343a4a8a3e8.png" />
+              <img alt="Portfolio logo" className="w-full h-full object-cover rounded-full p-2 bg-[#F0F0E0] dark:bg-[#121212]" src="/logo.png" />
             </div>
           </div>
           <div>
             <div className="space-y-4">
-              {links.map((link, index) => (
-                <a 
-                  key={link.name}
-                  ref={el => linksRef.current[index] = el}
-                  className="flex justify-between items-center py-4 border-b border-gray-300 dark:border-gray-600 group" 
-                  href={link.url}
-                >
-                  <span className="text-lg font-medium text-gray-700 dark:text-gray-300">{link.name}</span>
-                  <svg className="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-[#6B8E23] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </a>
-              ))}
+              {links.map((link, index) => {
+                const Icon = link.icon;
+                return (
+                  <a 
+                    key={link.name}
+                    ref={el => linksRef.current[index] = el}
+                    className="flex justify-between items-center py-4 border-b border-gray-300 dark:border-gray-600 group" 
+                    href={link.url}
+                  >
+                    <span className="text-lg font-medium text-gray-700 dark:text-gray-300">{link.name}</span>
+                    <div className="flex items-center space-x-3">
+                      <Icon 
+                        className="w-6 h-6 group-hover:scale-110 transition-transform" 
+                        style={{ color: link.color }}
+                      />
+                      <svg 
+                        className="w-6 h-6 group-hover:scale-110 transition-all" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                        style={{ color: link.color }}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
+                    </div>
+                  </a>
+                );
+              })}
             </div>
             <button
               ref={buttonRef}
@@ -194,8 +211,6 @@ function Contact() {
           <p>© 2025, All rights reserved</p>
           <div className="flex items-center space-x-6">
             <a className="hover:text-[#6B8E23] transition-colors" href="#">Back To Top</a>
-            <a className="hover:text-[#6B8E23] transition-colors" href="#">T & C Condition</a>
-            <a className="hover:text-[#6B8E23] transition-colors" href="#">Privacy Policy</a>
           </div>
         </div>
       </footer>

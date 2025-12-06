@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FaArrowLeft, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -183,119 +184,139 @@ export default function ProjectDetails() {
 
   if (!project) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center gap-4">
+      <div className="min-h-screen flex flex-col items-center justify-center gap-4 bg-[#F0F0E0] dark:bg-[#0A0A0A]">
         <Link
-            to="/"
-            className="px-8 py-3 bg-gray-200 dark:bg-gray-700 rounded-full font-semibold"
-          >
-            Back to Portfolio
-          </Link>
-          <img src="/public/coming-soon.png" alt="" />
+              to="/"
+              className="flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white text-sm md:text-base rounded-full font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300"
+            >
+              <FaArrowLeft className="w-3 h-3 md:w-4 md:h-4" />
+              Back To Portfolio
+            </Link>
+        <img src="/coming-soon.png" alt="Coming Soon" className="max-w-md" />
       </div>
     );
   }
 
   return (
-  <div
-    className="relative min-h-screen bg-cover bg-center bg-no-repeat py-16 px-6"
-    style={{ backgroundImage: `url(${project.image || '/default-bg.jpg'})` }}
-  >
-    {/* Overlay */}
-    <div ref={overlayRef} className="absolute inset-0 bg-black/40 dark:bg-black/60"></div>
+    <div
+      className="relative min-h-screen bg-cover bg-center bg-no-repeat py-16 px-6"
+      style={{ backgroundImage: `url(${project.image || '/default-bg.jpg'})` }}
+    >
+      {/* Overlay - Dark mode এর জন্য আরো গাঢ় */}
+      <div ref={overlayRef} className="absolute inset-0 bg-black/50 dark:bg-black/75"></div>
 
-    {/* Content */}
-    <div ref={containerRef} className="relative max-w-5xl mx-auto bg-white/90 dark:bg-gray-900/80 p-8 rounded-xl shadow-xl">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
-        <div ref={headerRef}>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100">{project.title}</h1>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">{project.subtitle}</p>
-        </div>
+      {/* Content - Dark mode এর জন্য better contrast */}
+      <div ref={containerRef} className="relative max-w-5xl mx-auto bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm p-8 md:p-12 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 gap-4">
+          <div ref={headerRef}>
+            <h1 className="text-3xl md:text-5xl font-bold mb-3 text-gray-900 dark:text-white">
+              {project.title}
+            </h1>
+            <p className="text-sm md:text-base text-gray-600 dark:text-gray-300">
+              {project.subtitle}
+            </p>
+          </div>
 
-        {/* Buttons */}
-        <div ref={buttonsRef} className="flex flex-wrap gap-4 mt-4 md:mt-0">
-          <a
-            href={project.liveLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-3 bg-primary text-white rounded-full font-semibold hover:opacity-90"
-          >
-            Live Project
-          </a>
-
-          <a
-            href={project.repoLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-3 border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition"
-          >
-            GitHub Repo
-          </a>
-
-          <Link
-            to="/"
-            className="px-8 py-3 bg-gray-200 dark:bg-gray-700 rounded-full font-semibold"
-          >
-            Back to Portfolio
-          </Link>
-        </div>
-      </div>
-
-      {/* Project Image */}
-      <img
-        ref={imageRef}
-        src={project.image}
-        className="w-full rounded-lg shadow-xl mb-12"
-        alt={project.title}
-      />
-
-      {/* Sections */}
-      <div ref={el => sectionsRef.current[0] = el}>
-        <h2 className="text-2xl font-semibold mb-3">Project Overview</h2>
-        <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-8">{project.overview}</p>
-      </div>
-
-      <div ref={el => sectionsRef.current[1] = el}>
-        <h2 className="text-2xl font-semibold mb-3">Tech Stack</h2>
-        <div className="flex flex-wrap gap-3 mb-10">
-          {project.techStack.map((tech) => (
-            <span
-              key={tech}
-              className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium"
+          {/* Buttons - সুন্দর icons সহ */}
+          <div ref={buttonsRef} className="flex flex-wrap gap-2 md:gap-3 mt-4 md:mt-0">
+            <a
+              href={project.liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 bg-[#6B8E23] text-white text-sm md:text-base rounded-full font-semibold hover:bg-[#5a7a1d] transition-all duration-300 shadow-lg hover:shadow-xl"
             >
-              {tech}
-            </span>
-          ))}
+              <FaExternalLinkAlt className="w-3 h-3 md:w-4 md:h-4" />
+              Live Project
+            </a>
+
+            <a
+              href={project.repoLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 border-2 border-[#6B8E23] text-[#6B8E23] dark:text-[#8FBC8F] dark:border-[#8FBC8F] text-sm md:text-base rounded-full font-semibold hover:bg-[#6B8E23] hover:text-white dark:hover:bg-[#8FBC8F] dark:hover:text-gray-900 transition-all duration-300"
+            >
+              <FaGithub className="w-4 h-4 md:w-5 md:h-5" />
+              GitHub
+            </a>
+
+            <Link
+              to="/"
+              className="flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white text-sm md:text-base rounded-full font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300"
+            >
+              <FaArrowLeft className="w-3 h-3 md:w-4 md:h-4" />
+              Back
+            </Link>
+          </div>
         </div>
-      </div>
 
-      <div ref={el => sectionsRef.current[2] = el}>
-        <h2 className="text-2xl font-semibold mb-3">Key Features</h2>
-        <ul className="list-disc ml-6 space-y-2 text-gray-700 dark:text-gray-300 mb-10">
-          {project.features.map((feature) => (
-            <li key={feature}>{feature}</li>
-          ))}
-        </ul>
-      </div>
+        {/* Project Image */}
+        <img
+          ref={imageRef}
+          src={project.image}
+          className="w-full rounded-lg shadow-xl mb-12 border-4 border-white dark:border-gray-800"
+          alt={project.title}
+        />
 
-      <div ref={el => sectionsRef.current[3] = el}>
-        <h2 className="text-2xl font-semibold mb-3">Challenges Faced</h2>
-        <ul className="list-disc ml-6 space-y-2 text-gray-700 dark:text-gray-300 mb-10">
-          {project.challenges.map((c) => (
-            <li key={c}>{c}</li>
-          ))}
-        </ul>
-      </div>
+        {/* Sections - Dark mode এর জন্য better text colors */}
+        <div ref={el => sectionsRef.current[0] = el}>
+          <h2 className="text-xl md:text-2xl font-semibold mb-3 text-gray-900 dark:text-white">
+            Project Overview
+          </h2>
+          <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+            {project.overview}
+          </p>
+        </div>
 
-      <div ref={el => sectionsRef.current[4] = el}>
-        <h2 className="text-2xl font-semibold mb-3">Future Improvements</h2>
-        <ul className="list-disc ml-6 space-y-2 text-gray-700 dark:text-gray-300 mb-10">
-          {project.future.map((f) => (
-            <li key={f}>{f}</li>
-          ))}
-        </ul>
+        <div ref={el => sectionsRef.current[1] = el}>
+          <h2 className="text-xl md:text-2xl font-semibold mb-3 text-gray-900 dark:text-white">
+            Tech Stack
+          </h2>
+          <div className="flex flex-wrap gap-2 md:gap-3 mb-8">
+            {project.techStack.map((tech) => (
+              <span
+                key={tech}
+                className="px-3 md:px-4 py-1.5 md:py-2 bg-[#6B8E23]/10 dark:bg-[#6B8E23]/20 text-[#6B8E23] dark:text-[#8FBC8F] rounded-full text-xs md:text-sm font-medium border border-[#6B8E23]/20 dark:border-[#6B8E23]/30"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div ref={el => sectionsRef.current[2] = el}>
+          <h2 className="text-xl md:text-2xl font-semibold mb-3 text-gray-900 dark:text-white">
+            Key Features
+          </h2>
+          <ul className="list-disc ml-5 md:ml-6 space-y-2 text-base text-gray-700 dark:text-gray-300 mb-8">
+            {project.features.map((feature) => (
+              <li key={feature}>{feature}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div ref={el => sectionsRef.current[3] = el}>
+          <h2 className="text-xl md:text-2xl font-semibold mb-3 text-gray-900 dark:text-white">
+            Challenges Faced
+          </h2>
+          <ul className="list-disc ml-5 md:ml-6 space-y-2 text-base text-gray-700 dark:text-gray-300 mb-8">
+            {project.challenges.map((c) => (
+              <li key={c}>{c}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div ref={el => sectionsRef.current[4] = el}>
+          <h2 className="text-xl md:text-2xl font-semibold mb-3 text-gray-900 dark:text-white">
+            Future Improvements
+          </h2>
+          <ul className="list-disc ml-5 md:ml-6 space-y-2 text-base text-gray-700 dark:text-gray-300 mb-8">
+            {project.future.map((f) => (
+              <li key={f}>{f}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
 }
